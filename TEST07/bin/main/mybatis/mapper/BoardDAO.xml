@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+   <mapper namespace="com.ryu.app.InterfaceBoardDAO">
+      <select id="selectAll" resultType="com.ryu.app.BoardDTO">
+         SELECT * FROM BOARD ORDER BY BID DESC
+      </select>
+      
+      <select id="selectOne" resultType="com.ryu.app.BoardDTO">
+         SELECT * FROM BOARD WHERE BID=#{param1}
+      </select>
+      
+      <insert id="insert">
+ 	  	INSERT INTO BOARD (MID, CONTENT) VALUES (#{MID}, #{CONTENT})   
+      </insert>      
+      
+      <update id="update">
+      	UPDATE BOARD SET CONTENT = #{CONTENT} WHERE BID = #{BID}
+      </update>
+      
+      <delete id="delete">
+         DELETE FROM BOARD WHERE BID=#{BID}
+      </delete>
+
+</mapper>
